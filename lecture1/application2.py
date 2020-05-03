@@ -8,7 +8,8 @@ def index():
 
 @app.route("/<string:name>")
 def hello(name):
-    return f"Hello {name}!"
+    name = name.capitalize()
+    return f"<h1>Hello {name}!</h1>"
 
 #run with:
 #export FLASK_APP=application1.py
