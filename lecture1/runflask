@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "Running $1 with flask"
+export FLASK_APP=$1
+flask run
+
