@@ -1,0 +1,76 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>My Web Page!</title>
+    <style>
+
+        ol > li{
+          color: red;
+        }
+
+        input[type=text]{
+          background-color:red;
+        }
+
+        input[type=number]{
+          background-color:yellow;
+        }
+
+        button{
+          width: 200px;
+          height: 50px;
+          font-size: 24px;
+          background-color: green;
+        }
+
+        button:hover{
+          background-color: orange;
+        }
+
+        a::before{
+          content: "\21d2   Click here: ";
+          font-weight: bold;
+        }
+
+        p::selection{
+          color: red;
+          background-color: yellow;
+        }
+    </style>
+  </head>
+  <body>
+
+
+    <ol>
+      <li> Item 1 </li>
+      <li> Item 2 </li>
+      <ul>
+        <li> Sublist Item 1 </li>
+        <li> Sublist Item 2 </li>
+      </ul>
+      <li> Item 3 </li>
+    </ol>
+
+
+    <form>
+      <input name="name" type="text" placeholder="First Name">
+      <input name="name" type="text" placeholder="Last Name">
+      <input name="name" type="number" placeholder="Age">
+    </form>
+
+
+    <button>Click me!</button>
+
+
+    <ul>
+      <li><a href="#">Link 1</a></li>
+      <li><a href="#">Link 2</a></li>
+      <li><a href="#">Link 3</a></li>
+    </ul>
+
+
+    <p>
+      Blah Blah Blah
+    </p>
+  </body>
+</html>
