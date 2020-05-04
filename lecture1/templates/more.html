@@ -1,0 +1,13 @@
+{% extends "layout.html"%}
+
+{% block heading %}
+    Second Page
+{% endblock %}
+
+{% block body %}
+   <p>
+     Using a layout.html to create a format for urls.html and more.html
+   </p>
+
+   <a href="{{url_for('urls')}}">Go back</a>
+{% endblock%}
