@@ -34,6 +34,18 @@ INSERT INTO flights (origin, destination, duration) VALUES('Lima', 'New York', 4
 #SELECT MIN(duration) FROM flights;
 #To find which one has the MIN --> #SELECT * FROM flights WHERE duration = 245;
 
+#Other
+#SELECT * FROM flights LIMIT 2;
+#SELECT * FROM flights ORDER BY duration ASC;
+#SELECT * FROM flights ORDER BY duration ASC LIMIT 3;
+#SELECT * FROM flights ORDER BY duration DESC;
+#SELECT origin, COUNT(*) FROM flights GROUP BY origin;
+
+#-----Adding/Deleting items to/in the table----
+
+#UPDATE flights SET duration = 430 WHERE origin = 'New York' AND destination = 'London';
+#DELETE FROM flights WHERE destination = 'Tokyo';
+
 #-----Running-----
 # To connect to an existing database ( called mydb) on a db server that is already running
 # psql mydb natasha
