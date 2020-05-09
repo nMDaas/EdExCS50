@@ -40,12 +40,52 @@ INSERT INTO flights (origin, destination, duration) VALUES('Lima', 'New York', 4
 #SELECT * FROM flights ORDER BY duration ASC LIMIT 3;
 #SELECT * FROM flights ORDER BY duration DESC;
 #SELECT origin, COUNT(*) FROM flights GROUP BY origin;
+#SELECT origin, COUNT(*) FROM flights GROUP BY origin HAVING COUNT(*) > 1;
 
 #-----Adding/Deleting items to/in the table----
 
 #UPDATE flights SET duration = 430 WHERE origin = 'New York' AND destination = 'London';
 #DELETE FROM flights WHERE destination = 'Tokyo';
 
+#-----Creating INDEX (not tested)----
+
+CREATE INDEX xyz table column
+
+#-----Creating Foreign Key----
+
+CREATE TABLE passengers(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR NOT NULL,
+  flight_id INTEGER REFERENCES flights
+);
+
+INSERT INTO passengers (name, flight_id) VALUES('Alice', 1);
+INSERT INTO passengers (name, flight_id) VALUES('Bob', 1);
+INSERT INTO passengers (name, flight_id) VALUES('Charlie', 2);
+INSERT INTO passengers (name, flight_id) VALUES('Dave', 2);
+INSERT INTO passengers (name, flight_id) VALUES('Erin', 4);
+INSERT INTO passengers (name, flight_id) VALUES('Frank', 6);
+INSERT INTO passengers (name, flight_id) VALUES('Grace', 6);
+
+#Using Foreign KEY - Before Joining
+
+SELECT * FROM passengers WHERE name = 'Alice';
+SELECT * FROM flights WHERE id = 1;
+
+#Joining
+
+SELECT origin, destination, name FROM flights JOIN passengers ON passengers.flight_id = flights.id;
+SELECT origin, destination, name FROM flights LEFT JOIN passengers ON passengers.flight_id = flights.id;
+--> Equivalent RIGHT JOIN
+
+#Using Foreign KEY - After Joining
+
+SELECT origin, destination, name FROM flights JOIN passengers ON passengers.flight_id = flights.id WHERE name = 'Alice';
+
+#-----Nested Queries-----
+
+SELECT flight_id FROM passengers GROUP BY flight_id HAVING COUNT(*) > 1;
+SELECT * FROM flights WHERE id IN (SELECT flight_id FROM passengers GROUP BY flight_id HAVING COUNT(*) > 1);
 #-----Running-----
 # To connect to an existing database ( called mydb) on a db server that is already running
 # psql mydb natasha
