@@ -1,0 +1,23 @@
+<!DOCTYPE>
+<html>
+    <head>
+      <script >
+
+      //This variable exists even outside the loop
+      if(true){
+        var message = 'Hello!'; //If var was exchanged with let, it would not work because let does not function outside the loop
+      }
+      alert(message);
+
+      //suppose instead script said:
+      const message = 'Hello!'
+      message = 'Goodbye!' //error because const cannot be reassigned
+
+      </script>
+      <title>My Website</title>
+  </head>
+      <body>
+          <h1 id="counter">0</h1>
+          <button>Click here!</button>
+      </body>
+</html>
